@@ -1,7 +1,4 @@
-import controllers.product_controller
-ProductController = controllers.product_controller.ProductController()
-
-def stock_reader(products_str):
+def stock_reader(products_str, ProductController):
     products_list = products_str.split("#")
 
     for product in products_list:
