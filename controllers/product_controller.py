@@ -9,5 +9,6 @@ class ProductController:
         self.stock.append(new_product)
 
     def list_products(self):
-        return [str(product) for product in self.stock]
+        for product in self.stock:
+            print(product)
     

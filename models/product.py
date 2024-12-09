@@ -6,4 +6,4 @@ class Product:
         self.price = price
 
     def __str__(self):
-        return f"{self.id} - {self.description}({self.quantity}, R$ {self.price})"
+        return f"{self.id} - {self.description}({self.quantity}, R$ {float(self.price):.2f})"
