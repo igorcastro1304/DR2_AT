@@ -12,3 +12,5 @@ class ProductController:
         for product in self.stock:
             print(product)
     
+    def sort_products(self, ascending=True):
+        self.stock.sort(key=lambda product: product.quantity, reverse=not ascending)

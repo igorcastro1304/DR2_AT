@@ -1,9 +1,11 @@
 import preload.product
 import controllers.create_product
 import controllers.product_controller
+import controllers.list_all_products
 
 ProductController = controllers.product_controller.ProductController()
 
 preload.product.initialize(ProductController)
 controllers.create_product.create_product(ProductController)
+controllers.list_all_products.list_all_products(ProductController)
 
