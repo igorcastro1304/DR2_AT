@@ -5,5 +5,4 @@ def stock_reader(products_str, ProductController):
         single_product = product.split(";")
         ProductController.add_product(int(single_product[1]), single_product[0], int(single_product[2]), float(single_product[3]))
         
-    initial_products = ProductController.list_products()
-    return initial_products
+    ProductController.list_products()
