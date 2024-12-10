@@ -14,3 +14,15 @@ class ProductController:
     
     def sort_products(self, ascending=True):
         self.stock.sort(key=lambda product: product.quantity, reverse=not ascending)
+
+    def search_by_id(self, id):
+        return next((product for product in self.stock if product.id == id), f"Nenhum medicamento com o ID ({id}) encontrado!")
+    
+    def search_by_description(self, description):
+        matched_products =  [product for product in self.stock if description.lower() in product.description.lower()]
+
+        if not matched_products:
+            return f"Nenhum produto encontrado com a descrição ('{description}')."
+        
+        return "\n".join(str(product) for product in matched_products)
+    
