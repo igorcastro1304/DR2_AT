@@ -1,5 +1,4 @@
-from controllers import create_product, list_all_products, search_product
-
+from controllers import create_product, list_all_products, search_product, remove_product
 
 def make_action(option, ProductController):
     if option == 1:
@@ -10,6 +9,9 @@ def make_action(option, ProductController):
     
     elif option == 3:
         search_product.search_product_menu(ProductController)
+
+    elif option == 4:
+        remove_product.remove_product(ProductController)
 
 def show_menu(ProductController):
     option = -1
@@ -22,6 +24,7 @@ def show_menu(ProductController):
         print("1 - Adicionar novo medicamento;")
         print("2 - Listar medicamentos;")
         print("3 - Buscar medicamento(s);")
+        print("4 - Excluir medicamento;")
         print("0 - Sair.")
         print()
 
