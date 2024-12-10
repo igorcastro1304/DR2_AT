@@ -1,4 +1,4 @@
-from controllers import create_product, list_all_products
+from controllers import create_product, list_all_products, search_product
 
 
 def make_action(option, ProductController):
@@ -7,6 +7,9 @@ def make_action(option, ProductController):
 
     elif option == 2:
         list_all_products.list_all_products(ProductController)
+    
+    elif option == 3:
+        search_product.search_product_menu(ProductController)
 
 def show_menu(ProductController):
     option = -1
@@ -17,8 +20,9 @@ def show_menu(ProductController):
     while option != 0:
         print("Utilize o teclado numérico para selecionar uma opção: ")
         print("1 - Adicionar novo medicamento;")
-        print("2 - Listar medicamento;")
-        print("0 - Sair")
+        print("2 - Listar medicamentos;")
+        print("3 - Buscar medicamento(s);")
+        print("0 - Sair.")
         print()
 
         option = int(input("Escolha a opção desejada: "))
