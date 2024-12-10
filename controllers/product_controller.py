@@ -26,3 +26,10 @@ class ProductController:
         
         return "\n".join(str(product) for product in matched_products)
     
+    def remove_product_by_id(self, id):
+        for product in self.stock:
+            if product.id == id:
+                self.stock.remove(product)
+                return f"Medicamento com o ID ({id}) removido com sucesso!"
+            
+        return f"Nenhum medicamento com o ID ({id}) encontrado!"
