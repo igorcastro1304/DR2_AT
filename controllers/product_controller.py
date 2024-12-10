@@ -33,3 +33,12 @@ class ProductController:
                 return f"Medicamento com o ID ({id}) removido com sucesso!"
             
         return f"Nenhum medicamento com o ID ({id}) encontrado!"
+    
+    def list_soldout_products(self):
+        soldout_products = []
+
+        for product in self.stock:
+            if product.quantity == 0:
+                soldout_products.append(product)
+
+        return soldout_products

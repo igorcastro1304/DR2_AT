@@ -1,11 +1,11 @@
-from controllers import create_product, list_all_products, search_product, remove_product
+from controllers import create_product, list_products, search_product, remove_product
 
 def make_action(option, ProductController):
     if option == 1:
         create_product.create_product(ProductController)
 
     elif option == 2:
-        list_all_products.list_all_products(ProductController)
+        list_products.list_products(ProductController)
     
     elif option == 3:
         search_product.search_product_menu(ProductController)
