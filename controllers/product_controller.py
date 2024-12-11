@@ -42,3 +42,31 @@ class ProductController:
                 soldout_products.append(product)
 
         return soldout_products
+    
+    def increase_quantity(self, product, quantity_to_increase):
+        product.quantity += quantity_to_increase
+
+        return product
+
+    def decrease_quantity(self, product, quantity_to_decrease):
+        if product.quantity >= quantity_to_decrease:
+            product.quantity -= quantity_to_decrease
+        else:
+            return f"Não há estoque suficiente para retirar {product.description}"
+        
+        return product
+
+    def update_minimum_limit(self, product, new_minimum_limit):
+        product.min_quantity = new_minimum_limit
+
+        return product
+    
+    def list_below_minimum_products(self):
+        below_minimum_products = [product for product in self.stock if product.quantity < product.min_quantity]
+
+        if below_minimum_products:
+            print("Produtos abaixo do limite mínimo:")
+            for product in below_minimum_products:
+                print(product)
+        else:
+            print("Todos os produtos estão com o estoque regular.")
