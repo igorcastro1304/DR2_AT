@@ -80,3 +80,20 @@ class ProductController:
         total_stock_value = sum(product.price * product.quantity for product in self.stock)
 
         return total_stock_value
+    
+    def calculate_estimated_profit(self):
+        total_profit = 0.0
+
+        for product in self.stock:
+            if product.price < 500.00:
+                cost_percentage = 0.25
+            elif 500.01 <= product.price <= 700.00:
+                cost_percentage = 0.20
+            else:
+                cost_percentage = 0.15
+            
+            cost = product.price * cost_percentage
+            profit_per_item = product.price - cost
+            total_profit += profit_per_item * product.quantity
+        
+        return total_profit

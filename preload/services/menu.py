@@ -1,4 +1,4 @@
-from controllers import create_product, list_products, search_product, remove_product, update_products, calc_stock_value
+from controllers import create_product, list_products, search_product, remove_product, update_products, calc_stock_value, calc_estimated_profit
 
 def make_action(option, ProductController):
     if option == 1:
@@ -19,6 +19,9 @@ def make_action(option, ProductController):
     elif option == 6:
         calc_stock_value.calculate_total_stock_value(ProductController)
 
+    elif option == 7:
+        calc_estimated_profit.calc_estimated_profit(ProductController)
+
 def show_menu(ProductController):
     option = -1
 
@@ -33,6 +36,7 @@ def show_menu(ProductController):
         print("4 - Atualizar estoque;")
         print("5 - Excluir medicamento;")
         print("6 - Calcular valor total do estoque;")
+        print("7 - Calcular lucro estimado;")
         print("0 - Sair.")
         print()
 
