@@ -74,4 +74,9 @@ class ProductController:
     def update_product_price(self, product, new_price):
         product.price = new_price
 
-        return product
+        return 
+    
+    def calculate_total_stock_value(self):
+        total_stock_value = sum(product.price * product.quantity for product in self.stock)
+
+        return total_stock_value
