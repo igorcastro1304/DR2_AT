@@ -1,4 +1,4 @@
-from controllers import create_product, list_products, search_product, remove_product, update_products_quantity
+from controllers import create_product, list_products, search_product, remove_product, update_products
 
 def make_action(option, ProductController):
     if option == 1:
@@ -11,7 +11,7 @@ def make_action(option, ProductController):
         search_product.search_product_menu(ProductController)
 
     elif option == 4:
-        update_products_quantity.update_products_menu(ProductController)
+        update_products.update_products_menu(ProductController)
 
     elif option == 5:
         remove_product.remove_product(ProductController)

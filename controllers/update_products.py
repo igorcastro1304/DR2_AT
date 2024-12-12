@@ -48,6 +48,23 @@ def update_minimum_limit(ProductController):
     else:
         print("\nNenhum produto encontrado")
 
+def update_product_price(ProductController):
+    product_id = int(input("Digite o ID do medicamento a ser atualizado: "))
+    product = ProductController.search_by_id(product_id)
+    
+    if isinstance(product, Product):
+        print(str(product))
+        print()
+
+        new_price = float(input("Digite o novo preço do produto: "))
+        if new_price <= product.price:
+            print("A mudança viola as políticas de preço da loja!")
+        else:
+            product_updated = ProductController.update_product_price(product, new_price)
+            print(f"\nProduto atualizado! {product_updated}\n")
+    else:
+        print("\nNenhum produto encontrado")
+
 def make_update_action(option, ProductController):
     if option == 1:
         increase_quantity_on_update(ProductController)
@@ -55,6 +72,8 @@ def make_update_action(option, ProductController):
         decrease_quantity_on_update(ProductController)
     elif option == 3:
         update_minimum_limit(ProductController)
+    elif option == 4:
+        update_product_price(ProductController)
 
 def update_products_menu(ProductController):
     
@@ -68,6 +87,7 @@ def update_products_menu(ProductController):
         print("1 - Aumentar estoque;")
         print("2 - Diminuir estoque;")
         print("3 - Atualizar limite mínimo;")
+        print("4 - Atualizar preço;")
         print("0 - Sair.")
         print()
 

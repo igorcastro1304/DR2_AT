@@ -70,3 +70,8 @@ class ProductController:
                 print(product)
         else:
             print("Todos os produtos estão com o estoque regular.")
+
+    def update_product_price(self, product, new_price):
+        product.price = new_price
+
+        return product
