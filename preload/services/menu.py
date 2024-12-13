@@ -1,5 +1,8 @@
 from controllers import create_product, list_products, search_product, remove_product, update_products, calc_stock_value, calc_estimated_profit, make_general_report
 
+"""
+    Função para realizar a ação escolhida pelo usuário.
+"""
 def make_action(option, ProductController):
     if option == 1:
         create_product.create_product(ProductController)
@@ -24,6 +27,9 @@ def make_action(option, ProductController):
     elif option == 0:
         make_general_report.make_general_report(ProductController)
 
+"""
+    Função para exibir o menu interativo ao usuário.
+"""
 def show_menu(ProductController):
     option = -1
 

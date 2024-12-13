@@ -1,5 +1,8 @@
 from models.product import Product
 
+"""
+    Função para aumentar a quantidade do produto no estoque
+"""
 def increase_quantity_on_update(ProductController):
     product_id = int(input("Digite o ID do medicamento recebido: "))
     product = ProductController.search_by_id(product_id)
@@ -14,7 +17,9 @@ def increase_quantity_on_update(ProductController):
     else:
         print("\nNenhum produto encontrado")
         
-
+"""
+    Função para diminuir a quantidade do produto no estoque
+"""
 def decrease_quantity_on_update(ProductController):
     product_id = int(input("Digite o ID do medicamento retirado: "))
     product = ProductController.search_by_id(product_id)
@@ -33,6 +38,9 @@ def decrease_quantity_on_update(ProductController):
     else:
         print("\nNenhum produto encontrado")
 
+"""
+    Função para atualizar a quantidade mínima indicada do produto no estoque
+"""
 def update_minimum_limit(ProductController):
     product_id = int(input("Digite o ID do medicamento a ser atualizado: "))
     product = ProductController.search_by_id(product_id)
@@ -48,6 +56,9 @@ def update_minimum_limit(ProductController):
     else:
         print("\nNenhum produto encontrado")
 
+"""
+    Função para atualizar o preço do produto de acordo com as regras de negócio estabelecidas.
+"""
 def update_product_price(ProductController):
     product_id = int(input("Digite o ID do medicamento a ser atualizado: "))
     product = ProductController.search_by_id(product_id)
@@ -65,6 +76,9 @@ def update_product_price(ProductController):
     else:
         print("\nNenhum produto encontrado")
 
+"""
+    Função para realizar a ação de atualização escolhida pelo usuário
+"""
 def make_update_action(option, ProductController):
     if option == 1:
         increase_quantity_on_update(ProductController)
@@ -75,8 +89,10 @@ def make_update_action(option, ProductController):
     elif option == 4:
         update_product_price(ProductController)
 
-def update_products_menu(ProductController):
-    
+"""
+    Função para exibir o menu interativo de atualização ao usuário
+"""
+def update_products_menu(ProductController):    
     option = -1
     
     print()

@@ -1,3 +1,6 @@
+"""
+    Função que separa cada produto através do método split, e em seguida faz a separação dos atributos de cada medicamento, adicionando-os à lista do objeto criado.
+"""
 def stock_reader(products_str, ProductController):
     products_list = products_str.split("#")
 
