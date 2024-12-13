@@ -97,3 +97,32 @@ class ProductController:
             total_profit += profit_per_item * product.quantity
         
         return total_profit
+    
+    def make_general_report(self):
+        print()
+        print("------RELATÓRIO GERAL------")
+        print()
+        print(f"{'ID':<5} {'Descrição':<20} {'Quantidade':<10} {'Preço Venda':<15} {'Custo Unitário':<15} {'Lucro Unitário':<15}")
+        print("-" * 80)
+
+        for product in self.stock:
+            if product.price < 500.00:
+                cost_percentage = 0.25
+            elif 500.01 <= product.price <= 700.00:
+                cost_percentage = 0.20
+            else:
+                cost_percentage = 0.15
+
+            cost = product.price * cost_percentage
+            profit_per_item = product.price - cost
+
+            print(f"{product.id:<5} {product.description:<20} {product.quantity:<10} R$ {product.price:<12.2f} R$ {cost:<12.2f} R$ {profit_per_item:<12.2f}")
+
+        total_stock_value = self.calculate_total_stock_value()
+        total_estimated_profit = self.calculate_estimated_profit()
+
+        print("\nResumo Geral:")
+        print(f"Valor Total do Estoque: R$ {total_stock_value:.2f}")
+        print(f"Lucro Presumido Total: R$ {total_estimated_profit:.2f}")
+
+        

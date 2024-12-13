@@ -1,4 +1,4 @@
-from controllers import create_product, list_products, search_product, remove_product, update_products, calc_stock_value, calc_estimated_profit
+from controllers import create_product, list_products, search_product, remove_product, update_products, calc_stock_value, calc_estimated_profit, make_general_report
 
 def make_action(option, ProductController):
     if option == 1:
@@ -21,6 +21,8 @@ def make_action(option, ProductController):
 
     elif option == 7:
         calc_estimated_profit.calc_estimated_profit(ProductController)
+    elif option == 0:
+        make_general_report.make_general_report(ProductController)
 
 def show_menu(ProductController):
     option = -1
